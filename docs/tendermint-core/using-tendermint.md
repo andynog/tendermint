@@ -43,6 +43,11 @@ definition](https://github.com/tendermint/tendermint/blob/master/types/genesis.g
 - `chain_id`: ID of the blockchain. This must be unique for
   every blockchain. If your testnet blockchains do not have unique
   chain IDs, you will have a bad time. The ChainID must be less than 50 symbols.
+- `consensus_params`: Contains consensus critical parameters that determine the validity of blocks.
+  - `block`: Define limits on the block size and gas plus minimum time between blocks.
+  - `evidence`: Determine how to handle evidence of misbehaviour. Includes a `max_age` parameter
+  that determines to only accept new evidence more recent than the specified `max_age`.
+  - `validator`: Restrict the public key types validators can use.
 - `validators`: List of initial validators. Note this may be overridden entirely by the
   application, and may be left empty to make explicit that the
   application will initialize the validator set with ResponseInitChain.
